@@ -9,5 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-# Bootdev stuff
+# logging stuff
 game_state.jsonl
+game_events.jsonl
