@@ -33,7 +33,7 @@ A classic arcade-style Asteroids game built with Python and Pygame. This project
 3. Run the game:
    python3 main.py
 
-## 🎮 How to Play
+## How to Play
 
 The objective is simple: survive the asteroid field as long as possible!
 
