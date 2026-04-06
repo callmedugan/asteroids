@@ -48,4 +48,3 @@ The objective is simple: survive the asteroid field as long as possible!
 
 - **Asteroids:** Larger asteroids split into smaller ones when shot.
 - **Collisions:** If your ship touches an asteroid, it's Game Over!
-- **Screen Bounds:** Objects that move off the edge of the screen will wrap around or be removed.
