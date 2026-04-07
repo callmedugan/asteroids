@@ -14,15 +14,20 @@ LINE_WIDTH = 2
 #asteroids
 ASTEROID_MIN_RADIUS = 20
 ASTEROID_KINDS = 3
-ASTEROID_SPAWN_RATE_SECONDS = 0.8
 ASTEROID_MAX_RADIUS = ASTEROID_MIN_RADIUS * ASTEROID_KINDS
-#score
-SCORE_POSITION = (20, 20)
-LIVES_POSITION = (20, 70)
-SCORE_FONT_SIZE = 48
-SCORES_FOR_ASTEROIDS = [0, 100, 50, 20]
-EXTRA_LIFE_POINTS = 10000
 #colors
 COLOR_PLAYER = "magenta"
 COLOR_SHOT = "green"
 COLOR_ASTEROID = "white"
+#score
+SCORE_FONT_SIZE = 48
+POINTS_FOR_ASTEROIDS = [0, 100, 50, 20]
+EXTRA_LIFE_POINTS = 10000
+LEVEL_DATA = {
+    #key: [points needed for next level, static points modifier, asteroid spawn secs, asteroid speed]
+    1: [1000, 1.05, 0.7, 1.5],
+    2: [2500, 1.1, 0.6, 2],
+    3: [5000, 1.15, 0.5, 2.5],
+    4: [10000, 1.2, 0.4, 3],
+    5: [99999, 1.5, 0.3, 3.5],
+    }

@@ -15,6 +15,8 @@ def main():
 
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
+    #scale the screen bounds to check if asteroids need to be despawned
+    bounds = screen.get_rect().scale_by(1.2)
 
     # FPS stuff
     clock = pygame.time.Clock()
@@ -33,7 +35,7 @@ def main():
 
     #objects
     player = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT/2)
-    asteroid_field = AsteroidField()
+    field = AsteroidField()
     score = Score()
 
     while True:
@@ -45,18 +47,26 @@ def main():
             
         updatable.update(dt)
 
-        for a in asteroids:
-            if a.collides_with(player):
+        for asteroid in asteroids:
+            #checks to see if asteroid has left the screen
+            if not bounds.collidepoint(asteroid.position):
+                asteroid.kill()
+                continue
+            #handle player collisions
+            if asteroid.collides_with(player):
                 log_event("player_hit")
                 if player.is_hit() and not score.subtract_life():
-                    print("Game over!")
+                    print(f"Game over! Final score: {score.points}")
                     sys.exit()
-            for s in shots:
-                if s.collides_with(a):
+            #handle shot collisions
+            for shot in shots:
+                if shot.collides_with(asteroid):
                     log_event("asteroid_shot")
-                    s.kill()
-                    asteroid_hit_size = a.split()
-                    score.add_points(SCORES_FOR_ASTEROIDS[asteroid_hit_size])
+                    shot.kill()
+                    asteroid_hit_size = asteroid.split()
+                    #if level up adjust spawn rate and asteroid speeds
+                    if score.add_points(POINTS_FOR_ASTEROIDS[asteroid_hit_size]):
+                        field.level_up(score.level)
 
         #drawing
         screen.fill("black")
