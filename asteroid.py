@@ -8,7 +8,6 @@ class Asteroid(CircleShape):
     def __init__(self, x, y, radius, size, velocity):
         super().__init__(x, y, radius)
         self.size = size
-
         self.velocity = velocity
 
     def draw(self, screen):

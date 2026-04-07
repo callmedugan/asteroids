@@ -4,7 +4,7 @@ from constants import *
 class Score():
     def __init__(self):
         self.points = 0
-        self.lives = 3
+        self.lives = STARTING_LIVES
         self.level = 1
         self.modifier = 1
 
