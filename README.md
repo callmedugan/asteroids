@@ -1,26 +1,24 @@
 # Asteroids
 
-A classic arcade-style Asteroids game built with Python and Pygame. This project was developed as part of the [Boot.dev](https://www.boot.dev) curriculum to master Object-Oriented Programming and game loop logic.
+A classic arcade-style **Asteroids** game built with **Python** and **Pygame**.  
+Originally developed through the Boot.dev curriculum, this version expands on the core project with additional gameplay systems including **lives, scoring, levels, and multiple power-ups**. The aim was to make something that feels totally ridiculous to play, but also super satisfying.
 
 ## Tech Stack
 
-- **Language:** Python 3
-- **Library:** Pygame
+- **Python 3**
+- **Pygame**
 
 ## Features
 
-- **Physics-based Movement:** Rotational movement and momentum for the player ship.
-- **Collision Detection:** Circular hitbox logic for asteroids, bullets, and the player.
-- **Object-Oriented Design:** Clean class structures for game objects including inheritance and polymorphism.
-- **Dynamic Difficulty:** Randomly spawning asteroids of varying sizes.
+- **Physics-based movement** with ship rotation and momentum
+- **Collision detection** for asteroids, bullets, power-ups, and the player
+- **Object-oriented design** with reusable classes, inheritance, and polymorphism
+- **Lives system** for extended gameplay (you'll definitely need them)
+- **Score tracking** to reward survival and accuracy
+- **Level progression** with increasing difficulty and scoring multipliers
+- **Power-up system** 5 unique upgrades for the ship that offer a ton of hectic fun
 
-## Technical Highlights
-
-- **Game Loop:** Implemented a standard `dt` (delta time) calculation to ensure frame-rate independent movement.
-- **Inheritance:** Created a base `CircleShape` class that provides shared logic for all circular game entities.
-- **Groups:** Utilized Pygame Groups to efficiently manage and update dozens of game objects simultaneously.
-
-## Installation & Running
+## Installation
 
 1. Clone the repository:
    ```bash
@@ -35,7 +33,12 @@ A classic arcade-style Asteroids game built with Python and Pygame. This project
 
 ## How to Play
 
-The objective is simple: survive the asteroid field as long as possible!
+- Destroy asteroids to earn points
+- Larger asteroids split into smaller ones
+- Collect power-ups to gain temporary or enhanced abilities
+- Progress through levels as the game becomes more challenging
+- Lose a life when colliding with an asteroid unless shielded
+- The game ends when all lives are lost
 
 ### Controls
 
@@ -44,7 +47,22 @@ The objective is simple: survive the asteroid field as long as possible!
 | **Move / Rotate** | `WASD` or `Arrow Keys` |
 | **Fire Laser**    | `Spacebar`             |
 
-### Rules
+### Power-Ups
 
-- **Asteroids:** Larger asteroids split into smaller ones when shot.
-- **Collisions:** If your ship touches an asteroid, it's Game Over!
+**Shield** - Protects ship from being destroyed during collision
+**Fire Rate Up** - Reduces delay between shots
+**Speed Up** - Increases ship movement speed
+**Multishot** - Fires 3 shots at once
+**Bounce** - Shots ricochet instead of disappearing on impact
+
+### Learning Goals
+
+This project helped reinforce:
+
+object-oriented programming
+real-time game loop design
+collision handling
+state management
+scaling gameplay systems
+extending a base project with original features
+my love of turning a basic game project into something ridiculous
