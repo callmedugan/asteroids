@@ -16,33 +16,37 @@ ASTEROID_MIN_RADIUS = 20
 ASTEROID_KINDS = 3
 ASTEROID_MAX_RADIUS = ASTEROID_MIN_RADIUS * ASTEROID_KINDS
 #powerups
-POWERUP_RADIUS = 30
+POWERUP_RADIUS = 15
 POWERUP_DATA = {
-    #key: [name, duration]
-    1: ["shields", 10.0],
-    2: ["fire rate up", 10.0],
+    #key: [name, duration, color]
+    1: ["shields", 30.0, "cyan"],
+    2: ["fire rate up", 30.0, (255, 92, 0)],
+    3: ["speed up", 30.0, "magenta"],
+    4: ["multishot", 30.0, (57, 255, 20)],
+    5: ["bounce", 30.0, (255, 255, 0)],
     }
 #colors
-COLOR_PLAYER = "green"
-COLOR_SHOT = "green"
-COLOR_ASTEROID = "white"
-COLOR_POWERUP = "magenta"
-COLOR_SHIELDS = "cyan"
+COLOR_PLAYER = (200, 200, 210)
+COLOR_SHOT = "white"
+COLOR_ASTEROID = (180, 137, 104)
 #fonts
 LEVEL_UP_FONT_SIZE = 80
 GAME_OVER_FONT_SIZE = 120
 GAME_OVER_POINTS_FONT_SIZE = 48
 GAME_OVER_BOTTOM_TEXT_FONT_SIZE = 30
 SCORE_FONT_SIZE = 48
+POWERUP_DURATION_FONT_SIZE = 28
 #score
-STARTING_LIVES = 1
+STARTING_LIVES = 3
 POINTS_FOR_ASTEROIDS = [0, 100, 50, 20]
-EXTRA_LIFE_POINTS = 10000
+EXTRA_LIFE_POINTS = 100000
 LEVEL_DATA = {
     #key: [points needed for next level, static points modifier, asteroid spawn secs, asteroid speed]
-    1: [500, 1.05, 0.7, 1.25],
-    2: [5000, 1.1, 0.6, 1.5],
-    3: [10000, 1.15, 0.5, 1.75],
-    4: [20000, 1.2, 0.4, 2],
-    5: [99999, 1.5, 0.3, 2.25],
+    1: [500, 1.05, 0.7, 1.5],
+    2: [5000, 1.1, 0.55, 1.75],
+    3: [10000, 1.15, 0.4, 1.2],
+    4: [20000, 1.2, 0.35, 2.5],
+    5: [100000, 1.3, 0.3, 3],
+    6: [250000, 1.5, 0.25, 3.75],
+    7: [1000000, 1.75, 0.2, 4.5],
     }

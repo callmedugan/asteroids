@@ -12,15 +12,17 @@ class Powerup(CircleShape):
         self.type = None
         self.duration = None
         self.type_key = None
+        self.color = None
         self.__get_random_powerup()
 
     def __get_random_powerup(self):
         self.type_key = random.choice(list(POWERUP_DATA))
         self.type = POWERUP_DATA[self.type_key][0]
         self.duration = POWERUP_DATA[self.type_key][1]
+        self.color = POWERUP_DATA[self.type_key][2]
 
     def draw(self, screen):
-        pygame.draw.circle(screen, COLOR_POWERUP, self.position, self.radius, LINE_WIDTH)
+        pygame.draw.circle(screen, self.color, self.position, self.radius, LINE_WIDTH)
 
     def update(self, dt):
         self.position += (self.velocity * dt)
@@ -32,3 +34,12 @@ class Powerup(CircleShape):
         #fire rate up
         elif self.type_key == 2:
             player.fire_rate_up_powerup(self.duration)
+        #fire rate up
+        elif self.type_key == 3:
+            player.speed_up_powerup(self.duration)
+        #multishot
+        elif self.type_key == 4:
+            player.multishot_powerup(self.duration)
+        #bounce
+        elif self.type_key == 5:
+            player.bounce_powerup(self.duration)

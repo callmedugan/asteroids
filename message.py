@@ -18,10 +18,13 @@ class Message():
         #vars
         self.status = Message_status.NONE
         self.is_shown = False
-        self.duration_secs = 6
+        self.duration_secs = 4
         self.flicker_time_secs = 0.6
         self.timer = 0.0
         self.flicker_timer = 0.0
+
+        #custom settings
+        self.show_powerups = False
 
         #refs
         self.screen = screen
@@ -43,6 +46,8 @@ class Message():
         self.flicker_timer = 0
 
     def powerup(self, name, duration):
+        if not self.show_powerups:
+            return
         self.top_draw_surface = self.font.render(f"{name.upper()}! ({int(duration)}s)", True, "white")
         self.top_screen_position = self.top_draw_surface.get_rect(center=self.screen.get_rect().center)
         self.status = Message_status.POWERUP

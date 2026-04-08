@@ -12,8 +12,8 @@ class AsteroidField(pygame.sprite.Sprite):
         [pygame.Vector2(0, -1), lambda x: pygame.Vector2(x * SCREEN_WIDTH, SCREEN_HEIGHT + ASTEROID_MAX_RADIUS),],
     ]
 
-    spawn_rate = 0.8
-    powerup_spawn_chance_percent = 0.005
+    spawn_rate_secs = 0.8
+    powerup_spawn_chance_percent = 0.007
     speed_modifier = 1
 
     def __init__(self):
@@ -34,16 +34,16 @@ class AsteroidField(pygame.sprite.Sprite):
 
     def level_up(self, level):
         if level in LEVEL_DATA:
-            self.spawn_rate = LEVEL_DATA[level][2]
+            self.spawn_rate_secs = LEVEL_DATA[level][2]
             self.speed_modifier = LEVEL_DATA[level][3]
 
     def update(self, dt):
-        self.spawn_timer += dt
+        self.spawn_timer -= dt
         #powerups
         if random.random() < self.powerup_spawn_chance_percent:
             self.spawn(True)
         #asteroids
-        if self.spawn_timer > self.spawn_rate:
-            self.spawn_timer = 0
+        if self.spawn_timer <= 0:
+            self.spawn_timer = self.spawn_rate_secs
             # spawn a new asteroid at a random edge
             self.spawn()
