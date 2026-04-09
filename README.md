@@ -3,6 +3,8 @@
 A classic arcade-style **Asteroids** game built with **Python** and **Pygame**.  
 Originally developed through the Boot.dev curriculum, this version expands on the core project with additional gameplay systems including **lives, scoring, levels, and multiple power-ups**. The aim was to make something that feels totally ridiculous to play, but also super satisfying.
 
+![demo](https://github.com/user-attachments/assets/333ee2a2-4805-4605-a2e6-35aa559e82d8)
+
 ## Tech Stack
 
 - **Python 3**
